@@ -36,7 +36,7 @@ session_start();
             </label>
             <label>
                 0
-                <input type="checkbox" name="X" value="0">
+                <input type="checkbox" name="X" value="0" checked>
             </label>
             <label>
                 1
@@ -70,7 +70,7 @@ session_start();
                 <option value="5">5</option> 
             </select>
         </div>
-        <button type="submit" id="submit-button" disabled>Submit</button>
+        <button type="submit" id="submit-button">Submit</button>
     </form>
     <?php include 'table.php'?>
     <button id="clear-table-button">Clear table</button>

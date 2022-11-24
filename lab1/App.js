@@ -2,14 +2,14 @@ const subButton = document.getElementById("submit-button")
 const checkboxes = document.querySelectorAll("input[type=checkbox]")
 const clearButton = document.getElementById("clear-table-button")
 const inputField = document.getElementById("input-field")
-let c = 0;
+let c = 1;
 let flag = 0;
+let valid = true;
 
 window.onload = function(){
     inputField.addEventListener("input", function (){
             inputField.value = inputField.value.replace(/[^\d.-]/g, '');
             let y = inputField.value;
-            let valid = true;
             for(let i = 0; i < y.length; i++){
                 if(i === 0 && y[i] === '-'){
                     continue;
@@ -34,30 +34,32 @@ window.onload = function(){
                 document.getElementById("warning").innerText = "Y should be in [-5; 5] range";
 
             }else{
-                subButton.disabled = false;
-                document.getElementById("warning").innerText = "";
+		    if(flag===1){
+                	document.getElementById("warning").innerText = "";
+                	subButton.disabled = false;
+		    }
             }
 
         })
-    for(let i = 0;i <= checkboxes.length - 1; i++){
-        checkboxes[i].addEventListener("change", function() {
-            if(this.checked === true){
-                c += 1
-            } else if(this.checked === false){
-                c -= 1
-            }
-            if(c === 1){
-                flag = 1;
-            } else {
-                flag = 0;
-            }
-            if (flag === 1){
-                subButton.disabled = false;
-            } else {
-                subButton.disabled = true;
-            }
-        })
-    }
+        for(let i = 0;i <= checkboxes.length - 1; i++){
+            checkboxes[i].addEventListener("change", function() {
+                if(this.checked === true){
+                    c += 1
+                } else if(this.checked === false){
+                    c -= 1
+                }
+                if(c === 1){
+                    flag = 1;
+                } else {
+                    flag = 0;
+                }
+                if (flag === 1){
+                    subButton.disabled = false;
+                } else {
+                    subButton.disabled = true;
+                }
+            })
+        }
 }
 
 clearButton.onclick = function (){

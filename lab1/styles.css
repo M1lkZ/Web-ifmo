@@ -40,6 +40,6 @@ header{
     font-size: 2.5em;
     height: 10vh;
 }
-select{
+#input-field,select{
     text-shadow: none;
 }
