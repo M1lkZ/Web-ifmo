@@ -1,0 +1,54 @@
+*{
+    box-sizing: border-box;
+    margin: 0;
+    text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000;
+}
+*:not(table){
+    margin-bottom: 5px;
+}
+
+#hidden{
+    display: none;
+}
+
+button{
+    text-shadow: none;
+    height: 30px;
+    width: 80px;
+}
+body{
+    background-color: #333;
+    color: aliceblue;
+    width: 100vw;
+}
+header,
+#wrap
+{
+    margin: 10px auto;
+    padding: 5px;
+    /*max-width: 60vw;*/
+    /*min-height: 50px;*/
+    text-align: center;
+    display: flex;
+    flex-flow: column;
+    align-content: center;
+    justify-content: center;
+    width: 100vw;
+    height: 80vh;
+}
+#wrap{
+    width: 25%;
+}
+header{
+    font-style: italic;
+    font-size: 2.5em;
+    height: 10vh;
+}
+#input-field,select{
+    text-shadow: none;
+}
+
+#canvas-container{
+    width: 400px;
+    height: 400px;
+}
