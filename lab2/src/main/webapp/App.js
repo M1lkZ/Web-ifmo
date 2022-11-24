@@ -44,6 +44,7 @@ window.onload = function(){
                 hiddenInput.setAttribute('value',button.value);
             });
           }
-
-
+        clearButton.onclick = function () {
+            window.location.href = "clear";
+        }
 }

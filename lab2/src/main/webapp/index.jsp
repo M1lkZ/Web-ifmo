@@ -1,4 +1,6 @@
 <%@ page contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
+<jsp:useBean id="Results" scope="session" class="beans.Results"/>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -81,6 +83,28 @@
 <%--        </div>--%>
     </form>
     <button type="submit" id="submit-button" form="form">Submit</button>
+    <div class="table-container">
+        <table class="result-table">
+            <tr class="result-table__header">
+                <th class="result-table__coords-column">X</th>
+                <th class="result-table__coords-column">Y</th>
+                <th class="result-table__coords-column">R</th>
+                <th class="result-table__time-column">Request Time</th>
+                <th class="result-table__time-column">Processing Time</th>
+                <th class="result-table__hitres-column">Result</th>
+            </tr>
+            <c:forEach var="entry" items="${Results.hits}">
+                <tr>
+                    <td>${entry.x}</td>
+                    <td>${entry.y}</td>
+                    <td>${entry.r}</td>
+                    <td>${entry.time}</td>
+                    <td>${entry.processingTime}</td>
+                    <td>${entry.hit}</td>
+                </tr>
+            </c:forEach>
+        </table>
+    </div>
     <button id="clear-table-button">Clear table</button>
 </div>
 </body>
