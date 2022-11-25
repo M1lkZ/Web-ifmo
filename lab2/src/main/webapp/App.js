@@ -1,4 +1,5 @@
 const subButton = document.getElementById("submit-button");
+const clearButton = document.getElementById("clear-table-button");
 const inputField = document.getElementById("input-field");
 const hiddenInput = document.getElementById("hidden");
 const buttons = document.getElementsByClassName("R");
@@ -40,8 +41,9 @@ window.onload = function(){
 
         for (let button of buttons) {
             button.addEventListener('click', () => {
-              console.log(button.value);
+                console.log(button.value);
                 hiddenInput.setAttribute('value',button.value);
+                redraw_canvas(getR());
             });
           }
         clearButton.onclick = function () {

@@ -5,15 +5,15 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class ResponseAnswer {
-    private double x;
-    private double y;
-    private double r;
+    private float x;
+    private float y;
+    private float r;
     private boolean hitRes;
     private LocalDateTime time;
     private long processingTime;
 
 
-    public ResponseAnswer(int x, double y, int r, boolean hitRes, long processingTime) {
+    public ResponseAnswer(float x, float y, float r, boolean hitRes, long processingTime) {
         this.x = x;
         this.y = y;
         this.r = r;
@@ -44,5 +44,17 @@ public class ResponseAnswer {
 
     public long getProcessingTime() {
         return processingTime;
+    }
+
+    @Override
+    public String toString() {
+        return "ResponseAnswer{" +
+                "x=" + x +
+                ", y=" + y +
+                ", r=" + r +
+                ", hitRes=" + hitRes +
+                ", time=" + time +
+                ", processingTime=" + processingTime +
+                '}';
     }
 }

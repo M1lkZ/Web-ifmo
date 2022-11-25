@@ -22,18 +22,21 @@ public class AreaCheckServlet extends HttpServlet {
 
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        int intX = Integer.parseInt(request.getParameter("X"));
-        int intY = Integer.parseInt(request.getParameter("Y"));
-        int intR = Integer.parseInt(request.getParameter("R"));
+        float floatX = Float.parseFloat(request.getParameter("X"));
+        float floatY = Float.parseFloat(request.getParameter("Y"));
+        float floatR = Float.parseFloat(request.getParameter("R"));
+
+
         long startTime = System.nanoTime();
-        boolean hRes = isHit(intX,intY,intR);
+        boolean hRes = isHit(floatX,floatY,floatR);
         long runTime = System.nanoTime() - startTime;
-        ResponseAnswer res = new ResponseAnswer(intX,intY,intR, hRes, runTime);
+        ResponseAnswer res = new ResponseAnswer(floatX,floatY,floatR, hRes, runTime);
         resBean.getHits().add(res);
+        response.getWriter().println(genTable());
         request.setAttribute("table", genTable());
         getServletContext().getRequestDispatcher("/index.jsp").forward(request, response);
     }
-    protected boolean isHit(int x, int y, int r){
+    protected boolean isHit(float x, float y, float r){
         boolean hit = false;
         if(x > 0 && y > 0){
             hit = ((y <= (r / 2)) && (x <= r));
