@@ -17,7 +17,7 @@
 <header>Nickolay Danukov P32082 var 9123</header>
 <div id="wrap">
     <div id="canvas-container">
-        <canvas id="canvas" width="300px" height="300px"></canvas>
+        <canvas id="canvas" width="350px" height="350px"></canvas>
     </div>
     <form id="form" action="${pageContext.request.contextPath}/controller" method="post">
         <div id="text-container">

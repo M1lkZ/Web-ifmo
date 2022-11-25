@@ -114,22 +114,22 @@ function redraw_canvas(r_value){
     context.beginPath();
     context.moveTo(0, 0);
     context.lineTo(0, Math.floor(r_value * canvas_scale)/2);
-    context.lineTo(Math.floor(r_value * canvas_scale)/2, 0);
+    context.lineTo(Math.floor(r_value * canvas_scale), Math.floor(r_value * canvas_scale)/2);
+    context.lineTo(Math.floor(r_value * canvas_scale), 0);
     context.closePath();
     context.fill();
 
-    // 3 quarter
+    //2 quarter
     context.beginPath();
+    context.arc(0,0, Math.floor(r_value * canvas_scale)/2, 1/2 * Math.PI, Math.PI);
     context.moveTo(0, 0);
-    context.lineTo(0, -Math.floor(r_value * canvas_scale));
-    context.lineTo(-Math.floor(r_value * canvas_scale)/2, -Math.floor(r_value * canvas_scale));
+    context.lineTo(0, Math.floor(r_value * canvas_scale)/2);
     context.lineTo(-Math.floor(r_value * canvas_scale)/2, 0);
     context.closePath();
     context.fill();
 
-    //4 quarter
+    // 4 quarter
     context.beginPath();
-    context.arc(0,0, Math.floor(r_value * canvas_scale), 1/2 * Math.PI + Math.PI, 2 * Math.PI);
     context.moveTo(0, 0);
     context.lineTo(0, -Math.floor(r_value * canvas_scale));
     context.lineTo(Math.floor(r_value * canvas_scale), 0);
